@@ -1,23 +1,22 @@
+import axios from "axios";
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import HomeComponent from "../Components/HomeComponent";
-import axios from "axios";
+import SearchComponent from "../Components/SearchComponent";
 
-const Home: NextPage = ({
+const Search: NextPage = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
-      <HomeComponent data={data} />
+      <SearchComponent data={data} />
     </div>
   );
 };
 
-export default Home;
-
+export default Search;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await axios({
     url: process.env.NEXT_PUBLIC_ENV_VARIABLE,
